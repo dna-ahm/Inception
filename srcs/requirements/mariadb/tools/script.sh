@@ -1,14 +1,16 @@
+#!/bin/bash
+
 #path for marias data
-MARIADB_DATA_DIR = "/var/lib/mysql"
+MARIADB_DATA_DIR="/var/lib/mysql"
 
 #checks if mariadb has been init:
     #when properly init, it always creates the internal sys table 'mysql'
-if [-d "$MARIADB_DATA_DIR/mysql"]; then
+if [ -d "$MARIADB_DATA_DIR/mysql" ]; then
     echo "MariaDB data directory already exixst, skipping setup"
 else
     echo "Initializing MariaDB data directory..."
 
-    #INIT MARIADB
+    #INIT MARIADBj
         #creates internal table
     mysql_install_db --user=mysql --datadir="$MARIADB_DATA_DIR"
         #launches maria in safe mode:restarts if it crashes, etc
@@ -61,7 +63,8 @@ EOF
     echo "MariaDB setup complete!"
 fi
 
+mkdir -p /run/mysqld
+chown -R mysql:mysql /run/mysqld
 
-
-#restart mariadn in foreground
-exec /usr/bin/mysqld --user=mysql --datadir="$MARIADB_DATA_DIR"
+#restart mariadb in foreground
+exec mariadbd --user=mysql --datadir="$MARIADB_DATA_DIR"

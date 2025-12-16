@@ -24,7 +24,7 @@ RUN openssl req -x509 -nodes -days 365 \
     #copy our conf file inside the docker image
 COPY /conf/default.conf /etc/nginx/sites-available/default
     #creates a symbolic link to enable our custrom config file
-RUN ls -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
     #remove defaults index file
 RUN rm -rf /var/www/html/index.nginx-debian.html
     # add rights

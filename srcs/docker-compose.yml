@@ -1,0 +1,88 @@
+#define services
+services:
+
+    nginx:
+        container_name: nginx
+        build:
+            context: ./requirements/nginx
+            dockerfile: Dockerfile
+
+        image: nginx-inception
+
+        restart: always
+
+        ports:
+            - "443:443"
+
+        #nginx needs to wait for wp service to start
+        depends_on:
+            - wordpress
+
+        #our custom network for communication between containers
+        networks:
+            - inception-network
+
+        #nginx uses wp files so it has to access the wp-files-volume
+        volumes:
+            - wordpress-volume:/var/www/html
+
+    #---- WORDPRESS ----#
+    wordpress:
+        container_name: wordpress
+        build:
+            context: ./requirements/wordpress
+            dockerfile: Dockerfile
+        image: wordpress-inception
+
+        restart: always
+                
+        env_file:
+            - .env
+                    
+                #wp needs to wait for mariadb db
+        depends_on:
+            - mariadb
+                
+        networks:
+            - inception-network
+                
+                #volume for wordpress files
+        volumes:
+            - wordpress-volume:/var/www/html
+        
+    #---- MARIADB ----#
+    mariadb:
+        container_name: mariadb
+        build:
+            context: ./requirements/mariadb
+            dockerfile: Dockerfile
+        image: mariadb-inception
+        restart: always
+        
+        env_file:
+            - .env
+        
+        networks:
+            - inception-network
+        
+        #volume for database
+        volumes:
+            - mariadb-volume:/var/lib/mysql
+            
+#define volumes
+volumes:
+    #stores wp files
+    #shared between wp(read-write) and mariadb(read-only)
+    wordpress-volume:
+        #data stored on our local machine (regular storage)
+        driver: local
+    
+    #stores db files
+    mariadb-volume:
+        driver: local
+
+#define internal-communication network
+networks:
+    inception-network:
+    #bridge means containers can reachout via their service names
+        driver: bridge

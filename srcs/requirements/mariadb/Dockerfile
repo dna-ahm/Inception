@@ -6,7 +6,7 @@ RUN apt-get install mariadb-server -y
 RUN rm -rf /var/lib/apt/lists/*
 
 
-COPY tools/scrpit.sh /usr/local/bin
+COPY tools/script.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/script.sh
 
