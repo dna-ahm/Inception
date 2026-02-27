@@ -29,6 +29,7 @@ Here's what each of them does:
   - Privileges
   - Metadata
 * Management of dynamic files with Wordpress
+  
   Wordpress will deal with the whole 'logic' part of our webpages: a .html file for example is a static file, there is no logic or interaction needed to view it. It's just a 'visual' page.
   On the other hand, if we have a .php file (which we do on this website), it will need to be executed, because it's a program, it can interact with the user etc. So that is where Wordpress comes in, its an application that can:
   - Ask the database for posts
