@@ -1,8 +1,5 @@
 # Inception
-*Learning system administration through the use of Docker images*
-
-
-A multi-container application that serves a website
+*A multi-container application that serves a website*
 
 ## Description
 
@@ -63,7 +60,7 @@ So once you run `docker-compose`, all your container images are created, and all
 
 ### Launching
 1) Clone the repository:
-`git clone https://github.com/yourname/inception.git && cd inception` ///modify
+`git clone https://github.com/dna-ahm/Inception.git`
 2) Create a .env file, copy the text below into it and fill it with your credentials:
 
 `DB_NAME = `
