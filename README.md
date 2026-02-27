@@ -1,4 +1,9 @@
 # Inception
+![Docker](https://img.shields.io/badge/Docker-24.0.5-blue?style=flat&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-1.25.1-green?style=flat&logo=nginx&logoColor=white)
+![WordPress](https://img.shields.io/badge/WordPress-6.3-blue?style=flat&logo=wordpress&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-10.11-003545?style=flat&logo=mariadb&logoColor=white)
+
 *A multi-container application that serves a website*
 
 ## Description
