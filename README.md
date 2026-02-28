@@ -11,14 +11,17 @@
 ### The containers
 In this project, I learned to manipulate containers with Docker and Docker Compose.
 Each of the containers I configured contains only one application, in order to keep a true separate environment for each of them.
+
 Here's what each of them does:
 * A web server with NGinx
+  
   Nginx, or a web server in general works this way:
   - The server waits/listens for a connection/request, sent via a transport protocol (here I am using TLSv1.2 and TLSv1.3)
   - The server treats the request (= what was requested? was it to access a file? was it a demand to post something? to access data?)
   - It then sends back an answer, based on the request of course
-  Now on which port will the server listen? Or which transport protocol will it use? This il all defined in a configuration file, usually named something like default.conf. This file determines how the server behaves.
+  Now on which port will the server listen? Or which transport protocol will it use?  This il all defined in a configuration file, usually named something like default.conf. This file determines how the server behaves.
 * A database with MariaDB
+  
   MariaDB is a database management system, it is an open-source version of mysql.
   A database stores data in tables, in the case of our application, it stores:
   - WordPress posts and comments
