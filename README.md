@@ -13,7 +13,7 @@ In this project, I learned to manipulate containers with Docker and Docker Compo
 Each of the containers I configured contains only one application, in order to keep a true separate environment for each of them.
 
 Here's what each of them does:
-* A web server with NGinx
+* A web server with Nginx
   
   Nginx, or a web server in general works this way:
   - The server waits/listens for a connection/request, sent via a transport protocol (here I am using TLSv1.2 and TLSv1.3)
