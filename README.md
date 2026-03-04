@@ -44,7 +44,7 @@ Here's what each of them does:
 Now how do all these applications work together, and how are they linked?
 Here's the process:
 
-<img width="1466" height="825" alt="DOCKER NETWORK-2" src="https://github.com/user-attachments/assets/7398ba23-da9a-4c91-8359-d4b022e39640" />
+<img width="1380" height="952" alt="image" src="https://github.com/user-attachments/assets/0f700d2c-3622-4d85-8dab-3f34a4b3204f" />
 
 #### The link between the applications
 A client/user wants to connect to our website, our web server (Nginx) will deal with the request. If the request demands a .php file (dynamic), it will send that request to our Wordpress container. The request might require some data from the database (like if the user wants to see a post), so Wordpress will have to ask the necessary data from MariaDB. Then, once it has executed the file, has all the data it needs, and has an .html response ready, Wordpress will send it back to Nginx, which will then send that as a response to the client.
